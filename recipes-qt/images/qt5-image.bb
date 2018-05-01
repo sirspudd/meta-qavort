@@ -8,7 +8,8 @@ IMAGE_FEATURES += "\
 
 LICENSE = "MIT"
 
-inherit core-image
+inherit core-image extrausers
+EXTRA_USERS_PARAMS = "usermod -P qavort root;"
 
 TASK_INSTALL = " \
     96boards-tools \
