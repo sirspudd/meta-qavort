@@ -12,28 +12,13 @@ require recipes-rk/images/rk-image-multimedia.bb
 COMMON_INSTALL = " \
 	qtbase	\
 	qtdeclarative \
-	qtmultimedia \
-	qtsvg \
-	qtsensors \
-	qtimageformats \
-	qtsystems \
-	qtscript \
-	qt3d \
-	qtgraphicaleffects \
-	qtconnectivity \
-	qtlocation \
-"
-
-QT_DEMOS = " \
-	carmachine-examples \
+	qtwayland \
 "
 
 IMAGE_INSTALL += " \
     openssh-sshd \
     openssh \
-	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'qtwayland', '', d)} \
 	${COMMON_INSTALL} \
-	${QT_DEMOS} \
 	autostart \
 	packagegroup-fonts-truetype \
 "
