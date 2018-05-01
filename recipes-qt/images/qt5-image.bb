@@ -2,12 +2,32 @@
 # Released under the MIT license (see COPYING.MIT for the terms)
 
 IMAGE_FEATURES += "\
+    package-management \
 	splash	\
 "
 
-do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
+LICENSE = "MIT"
 
-require recipes-rk/images/rk-image-multimedia.bb
+inherit core-image
+
+TASK_INSTALL = " \
+    96boards-tools \
+    dvfs-rules \
+"
+
+RF_INSTALL = " \
+    brcm-patchram-plus \
+    firmware-rk-wifi \
+    firmware-rk-bt \
+"
+
+CORE_IMAGE_EXTRA_INSTALL += " \
+    io \
+    ${TASK_INSTALL} \
+    ${RF_INSTALL} \
+"
+
+do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
 
 COMMON_INSTALL = " \
 	qtbase	\
