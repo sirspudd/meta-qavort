@@ -33,7 +33,6 @@ do_rootfs[depends] += "virtual/kernel:do_populate_sysroot"
 COMMON_INSTALL = " \
 	qtbase	\
 	qtdeclarative \
-	qtwayland \
 "
 
 IMAGE_INSTALL += " \
